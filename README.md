@@ -11,9 +11,6 @@
  <div align="center">
 <h2>💻 Ingenieria en Software.</h2>
 <h3> Estructura de Datos  NRC: 4683</h3>
-   <p align="center">
-  <img width="300" height="300" src="https://media.giphy.com/media/dYyRWrXb9OpfYbhNY4/giphy.gif%22%3E">
-</p>
 <h3>NRC: 4683</h3>
 <h3>  </h3>
 <p>Santiago Chasiluisa</p>
