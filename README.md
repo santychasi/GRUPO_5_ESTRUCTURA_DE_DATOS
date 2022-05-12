@@ -6,7 +6,7 @@
 <h2>UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE</h2>
 <div align="center">
   <p align="center">
-<img width="700px" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Logo_ESPE.png
+<img width="700px" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Logo_ESPE.png"
 <br>
  <div align="center">
 <h2>💻 Ingenieria en Software.</h2>
