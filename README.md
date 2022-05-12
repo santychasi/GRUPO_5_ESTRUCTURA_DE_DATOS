@@ -13,6 +13,6 @@
 <h3> Estructura de Datos  NRC: 4683</h3>
 <h3>NRC: 4683</h3>
 <h3>  </h3>
-<p>Santiago Chasiluisa</p>
-<p>Omar Gualotuña</p>
+<h3>Santiago Chasiluisa</h3>
+<h3>Omar Gualotuña</h3>
 <br>
