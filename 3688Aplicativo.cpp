@@ -21,7 +21,7 @@ char *ingreso(char *msj){
 	dato[i]='\0';
 	return dato;
 }
-
+// comentario gggg
 
 int main(int argc, char** argv) {
 	/*Lista lst;
