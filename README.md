@@ -6,7 +6,7 @@
 <h2>UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE</h2>
 <div align="center">
   <p align="center">
-<img width="700px" src="https://software-el.espe.edu.ec/wp-content/uploads/2019/01/espe-carrera-de-software.png%22/%3E
+<img width="700px" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Logo_ESPE.png
 <br>
  <div align="center">
 <h2>💻 Ingenieria en Software.</h2>
