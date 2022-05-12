@@ -15,7 +15,4 @@
 <h3>  </h3>
 <p>Santiago Chasiluisa</p>
 <p>Omar Gualotuña</p>
-
-<p>/////////////</p>
-
 <br>
