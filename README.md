@@ -10,7 +10,7 @@
 <br>
  <div align="center">
 <h2>💻 Ingenieria en Software.</h2>
-<h3> Estructura de Datos  NRC: 4683</h3>
+<h3> Estructura de Datos </h3>
 <h3>NRC: 4683</h3>
 <h3>  </h3>
 <h3>Santiago Chasiluisa</h3>
