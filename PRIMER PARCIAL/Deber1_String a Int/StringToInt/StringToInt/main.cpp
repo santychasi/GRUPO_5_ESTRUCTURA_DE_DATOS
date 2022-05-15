@@ -8,7 +8,6 @@
 * ESTRUCTURA DE DATOS
 * NRC: 4683
 */
-
 #include <iostream>
 #include "Ingresar.h"
 #include "Transformar.h"
