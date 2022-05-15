@@ -19,16 +19,15 @@ using namespace std;
 
 int main() {
     string frase,frase2;
-    cout << "Digite un numero: " << endl;
+    cout << "Digite un numero:" << endl;
     cin >> frase2;
     Ingresar* objIngresar = new Ingresar();
     frase = objIngresar->ingresar(frase2);
     Transformar* objTransformar = new Transformar();
     cout << objTransformar->transformar(frase) << endl;
-
     /*Ingresar objIngresar;
     frase = objIngresar.ingresar("85");
     Transformar objTransformar;
     cout << objTransformar.transformar(frase) << endl;*/
-
+    return 0;
 }
