@@ -5,7 +5,7 @@
 
 class Complejo {
 	private:
-		int real, imag;
+		int real,imag;
 	public:
 		Complejo(int _real, int _imag) {
 			real = _real;
