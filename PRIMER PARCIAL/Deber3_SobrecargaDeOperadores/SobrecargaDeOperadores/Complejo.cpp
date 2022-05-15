@@ -16,19 +16,19 @@ bool Complejo::operator==(Complejo num2) {
 	}
 }
 
-void Complejo::setR(int valorR) {
+void Complejo::setR(int valorR){
 	real = valorR;
 }
 
-void Complejo::setI(int valorI) {
+void Complejo::setI(int valorI){
 	imag = valorI;
 }
 
-int Complejo::getR() {
+int Complejo::getR(){
 	return real;
 }
 
-int Complejo::getI() {
+int Complejo::getI(){
 	return imag;
 }
 
