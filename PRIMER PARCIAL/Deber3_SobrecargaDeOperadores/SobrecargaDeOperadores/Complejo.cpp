@@ -1,3 +1,15 @@
+/*
+* UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE
+* SOBRECARGAR LOS OPERADORES "-" e "=="
+* NOMBRE: GUALOTUÑA OMAR, CHASILUISA SANTIAGO
+* FECHA DE CREACION: 2022/05/14
+* FECHA DE MODIFICACION: 2022/05/14
+* VERSION 1
+* ESTRUCTURA DE DATOS
+* NRC: 4683
+*/
+
+
 #include<iostream>
 #include "Complejo.h"
 
@@ -16,19 +28,19 @@ bool Complejo::operator==(Complejo num2) {
 	}
 }
 
-void Complejo::setR(int valorR){
+void Complejo::setR(int valorR) {
 	real = valorR;
 }
 
-void Complejo::setI(int valorI){
+void Complejo::setI(int valorI) {
 	imag = valorI;
 }
 
-int Complejo::getR(){
+int Complejo::getR() {
 	return real;
 }
 
-int Complejo::getI(){
+int Complejo::getI() {
 	return imag;
 }
 
