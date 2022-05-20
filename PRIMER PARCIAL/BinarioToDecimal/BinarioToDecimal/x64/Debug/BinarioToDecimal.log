@@ -1,0 +1,9 @@
+﻿  BinarioDecimal.cpp
+  main.cpp
+C:\Users\omarg\Desktop\ESTRUCTURA DE DATOS\PARCIAL 1\BinarioToDecimal\BinarioToDecimal\main.cpp(16,63): warning C4244: 'argumento': conversión de '__int64' a 'T'; posible pérdida de datos
+          with
+          [
+              T=int
+          ]
+  Generando código...
+  BinarioToDecimal.vcxproj -> C:\Users\omarg\Desktop\ESTRUCTURA DE DATOS\PARCIAL 1\BinarioToDecimal\x64\Debug\BinarioToDecimal.exe

@@ -1,0 +1,19 @@
+/*
+* UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE
+* FUNCION PARA TRANSFORMAR DE BIIARIO A DECIMAL
+* NOMBRE: GUALOTUÑA OMAR, CHASILUISA SANTIAGO
+* FECHA DE CREACION: 2022/05/19
+* FECHA DE MODIFICACION: 2022/05/19
+* VERSION 1
+* ESTRUCTURA DE DATOS
+* NRC: 4683
+*/
+#pragma once
+#include<iostream>
+
+template <class T>
+
+class BinarioDecimal {
+	public:
+		T binarioaDecimal(T);
+};

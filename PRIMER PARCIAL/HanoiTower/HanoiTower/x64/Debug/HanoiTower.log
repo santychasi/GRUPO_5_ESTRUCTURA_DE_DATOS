@@ -1,0 +1,5 @@
+﻿  TorreHanoi.cpp
+  main.cpp
+  Generando código...
+main.obj : error LNK2019: símbolo externo "public: void __cdecl TorreHanoi<char>::torreDeHanoi(char,char,char,char)" (?torreDeHanoi@?$TorreHanoi@D@@QEAAXDDDD@Z) sin resolver al que se hace referencia en la función main
+C:\Users\omarg\Desktop\ESTRUCTURA DE DATOS\PARCIAL 1\HanoiTower\x64\Debug\HanoiTower.exe : fatal error LNK1120: 1 externos sin resolver
