@@ -8,7 +8,7 @@ class Pila {
 	private:
 		nodo cima;
 	public:
-        Pila(void);
+        Pila();
         bool PilaVacia();
         void Apilar(int);
         void Cima();
