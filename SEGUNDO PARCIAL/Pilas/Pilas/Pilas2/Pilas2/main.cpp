@@ -11,8 +11,7 @@ int main(){
     Pila pila;
     int x, op;
 
-    do
-    {
+    do{
         menu();  
         cin >> op;
         switch (op)
