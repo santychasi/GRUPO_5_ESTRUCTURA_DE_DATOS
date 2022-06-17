@@ -1,0 +1,213 @@
+\hypertarget{_circle_double_linked_list_8h_source}{}\doxysection{Circle\+Double\+Linked\+List.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_CIRCLE\_DOUBLE\_LINKED\_LIST\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_CIRCLE\_DOUBLE\_LINKED\_LIST\_}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}NodeList.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{7 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9   \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     \textcolor{keywordtype}{size\_t} size = 0;}
+\DoxyCodeLine{11     std::shared\_ptr<NodeList<T>> head = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{12     std::shared\_ptr<NodeList<T>> at(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{13     std::shared\_ptr<NodeList<T>> last();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} pushBack(T);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} removeAt(\textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} pushFront(T);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} pushAt(\textcolor{keywordtype}{size\_t}, T);}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} forEach(std::function<\textcolor{keywordtype}{void}(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}>, \textcolor{keywordtype}{size\_t})>);}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} forEach(std::function<\textcolor{keywordtype}{void}(T)>);}
+\DoxyCodeLine{23     std::shared\_ptr<NodeList<T>> find(std::function<\textcolor{keywordtype}{bool}(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}>, \textcolor{keywordtype}{size\_t})>);}
+\DoxyCodeLine{24     std::shared\_ptr<NodeList<T>> find(std::function<\textcolor{keywordtype}{bool}(T)>);}
+\DoxyCodeLine{25     std::shared\_ptr<NodeList<T>> find(std::function<\textcolor{keywordtype}{bool}(T, \textcolor{keywordtype}{size\_t})>);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{size\_t} getSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::pushBack}}(T value)}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     size++;}
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} (head == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         head = std::make\_shared<NodeList<T>>(value);}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37     \textcolor{keyword}{auto} lastNode = last();}
+\DoxyCodeLine{38     \textcolor{keyword}{auto} node = std::make\_shared<NodeList<T>>(value);}
+\DoxyCodeLine{39     lastNode.get()-\/>setNext(node);}
+\DoxyCodeLine{40     node.get()-\/>setPrevious(lastNode);}
+\DoxyCodeLine{41 \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::removeAt}}(\textcolor{keywordtype}{size\_t} index)}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     \textcolor{keywordflow}{if} (index < 0 || index >= size)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}index out of bounds"{}});}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} (index == 0)}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         std::shared\_ptr<NodeList<T>> temp = head;}
+\DoxyCodeLine{53         head = head.get()-\/>getNext();}
+\DoxyCodeLine{54         head.get()-\/>setPrevious(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{55         \textcolor{keyword}{delete} temp.get();}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (index == size -\/ 1)}
+\DoxyCodeLine{58     \{}
+\DoxyCodeLine{59         std::shared\_ptr<NodeList<T>> node = last();}
+\DoxyCodeLine{60         std::shared\_ptr<NodeList<T>> previous = node.get()-\/>getPrevious();}
+\DoxyCodeLine{61         previous.get()-\/>setNext(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{62         \textcolor{keyword}{delete} node.get();}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{65     \{}
+\DoxyCodeLine{66         std::shared\_ptr<NodeList<T>> target = at(index);}
+\DoxyCodeLine{67         std::shared\_ptr<NodeList<T>> previous = target.get()-\/>getPrevious();}
+\DoxyCodeLine{68         std::shared\_ptr<NodeList<T>> next = target.get()-\/>getNext();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70         previous.get()-\/>setNext(next);}
+\DoxyCodeLine{71         next.get()-\/>setPrevious(previous);}
+\DoxyCodeLine{72         \textcolor{keyword}{delete} target.get();}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     size-\/-\/;}
+\DoxyCodeLine{76 \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::pushFront}}(T value)}
+\DoxyCodeLine{79 \{}
+\DoxyCodeLine{80     \textcolor{keywordflow}{if} (head == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{81     \{}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} pushBack(value);}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     std::shared\_ptr<NodeList<T>> node = std::make\_shared<NodeList<T>>(value);}
+\DoxyCodeLine{86     std::shared\_ptr<NodeList<T>> temp = head;}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     head = node;}
+\DoxyCodeLine{89     head.get()-\/>setNext(temp);}
+\DoxyCodeLine{90     temp.get()-\/>setPrevious(head);}
+\DoxyCodeLine{91     size++;}
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::pushAt}}(\textcolor{keywordtype}{size\_t} index, T value)}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     \textcolor{keywordflow}{if} (index < 0 || index > size)}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}index out of bounds"{}});}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordflow}{if} (index == 0 || size == 0)}
+\DoxyCodeLine{102     \{}
+\DoxyCodeLine{103         \textcolor{keywordflow}{return} pushFront(value);}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (index == size)}
+\DoxyCodeLine{106     \{}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} pushBack(value);}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     std::shared\_ptr<NodeList<T>> target = at(index);}
+\DoxyCodeLine{111     std::shared\_ptr<NodeList<T>> previous = target.get()-\/>getPrevious();}
+\DoxyCodeLine{112     std::shared\_ptr<NodeList<T>> next = target.get()-\/>getNext();}
+\DoxyCodeLine{113     std::shared\_ptr<NodeList<T>> nodo = std::make\_shared<NodeList<T>>(value);}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     previous.get()-\/>setNext(nodo);}
+\DoxyCodeLine{116     nodo.get()-\/>setNext(target);}
+\DoxyCodeLine{117     nodo.get()-\/>setPrevious(previous);}
+\DoxyCodeLine{118     target.get()-\/>setPrevious(nodo);}
+\DoxyCodeLine{119     size++;}
+\DoxyCodeLine{120 \}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{122 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{123 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::forEach}}(std::function<\textcolor{keywordtype}{void}(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}>, \textcolor{keywordtype}{size\_t})> callback)}
+\DoxyCodeLine{124 \{}
+\DoxyCodeLine{125     \textcolor{keyword}{auto} current = head;}
+\DoxyCodeLine{126     \textcolor{keywordtype}{size\_t} index = 0;}
+\DoxyCodeLine{127     \textcolor{keywordflow}{while} (current != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{128     \{}
+\DoxyCodeLine{129         callback(current, index);}
+\DoxyCodeLine{130         current = current.get()-\/>getNext();}
+\DoxyCodeLine{131         index++;}
+\DoxyCodeLine{132     \}}
+\DoxyCodeLine{133 \}}
+\DoxyCodeLine{134 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::forEach}}(std::function<\textcolor{keywordtype}{void}(T)> callback)}
+\DoxyCodeLine{135 \{}
+\DoxyCodeLine{136     forEach([\&](std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}> node, \textcolor{keywordtype}{size\_t} index) \{ callback(node.get()-\/>getData()); \});}
+\DoxyCodeLine{137 \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{140 \textcolor{keyword}{inline} std::shared\_ptr<NodeList<T>> \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::find}}(}
+\DoxyCodeLine{141     std::function<\textcolor{keywordtype}{bool}(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}>, \textcolor{keywordtype}{size\_t})> callback)}
+\DoxyCodeLine{142 \{}
+\DoxyCodeLine{143     std::shared\_ptr<NodeList<T>> current = head;}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \textcolor{keywordtype}{int} index = 0;}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{keywordflow}{while} (current != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{148     \{}
+\DoxyCodeLine{149         \textcolor{keywordflow}{if} (callback(current, index++))}
+\DoxyCodeLine{150         \{}
+\DoxyCodeLine{151             \textcolor{keywordflow}{return} current;}
+\DoxyCodeLine{152         \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154         current = current.get()-\/>getNext();}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{158 \}}
+\DoxyCodeLine{159 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{160 \textcolor{keyword}{inline} std::shared\_ptr<NodeList<T>> \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::find}}(std::function<\textcolor{keywordtype}{bool}(T)> callback)}
+\DoxyCodeLine{161 \{}
+\DoxyCodeLine{162     \textcolor{keywordflow}{return} find([\&](std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}> node, \textcolor{keywordtype}{size\_t} index) \{ \textcolor{keywordflow}{return} callback(node.get()-\/>getData()); \});}
+\DoxyCodeLine{163 \}}
+\DoxyCodeLine{164 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::getSize}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{165 \textcolor{keyword}{}\{}
+\DoxyCodeLine{166     \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{167 \}}
+\DoxyCodeLine{168 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{inline} std::shared\_ptr<NodeList<T>> \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::last}}()}
+\DoxyCodeLine{169 \{}
+\DoxyCodeLine{170     \textcolor{keywordflow}{if} (size == 0)}
+\DoxyCodeLine{171     \{}
+\DoxyCodeLine{172         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174     \textcolor{keywordflow}{return} at(size -\/ 1);}
+\DoxyCodeLine{175 \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> std::shared\_ptr<NodeList<T>> \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::at}}(\textcolor{keywordtype}{size\_t} index)\textcolor{keyword}{ const}}
+\DoxyCodeLine{178 \textcolor{keyword}{}\{}
+\DoxyCodeLine{179     \textcolor{keywordflow}{if} (index < 0 || index >= size)}
+\DoxyCodeLine{180     \{}
+\DoxyCodeLine{181         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}index out of bounds"{}});}
+\DoxyCodeLine{182     \}}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} (index == 0)}
+\DoxyCodeLine{184     \{}
+\DoxyCodeLine{185         \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{186     \}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keywordtype}{size\_t} currentIndex = 0;}
+\DoxyCodeLine{189     std::shared\_ptr<NodeList<T>> lastNode = head;}
+\DoxyCodeLine{190     \textcolor{keywordflow}{while} (lastNode.get()-\/>getNext() != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{191     \{}
+\DoxyCodeLine{192         \textcolor{keywordflow}{if} (currentIndex == index)}
+\DoxyCodeLine{193         \{}
+\DoxyCodeLine{194             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{195         \}}
+\DoxyCodeLine{196         currentIndex++;}
+\DoxyCodeLine{197         lastNode = lastNode.get()-\/>getNext();}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199     \textcolor{keywordflow}{return} lastNode;}
+\DoxyCodeLine{200 \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{203 std::shared\_ptr<NodeList<T>> \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<T>::find}}(std::function<\textcolor{keywordtype}{bool}(T, \textcolor{keywordtype}{size\_t})> callback)}
+\DoxyCodeLine{204 \{}
+\DoxyCodeLine{205     \textcolor{keywordflow}{return} find([\&](std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}> node, \textcolor{keywordtype}{size\_t} index) -\/> \textcolor{keywordtype}{bool} \{}
+\DoxyCodeLine{206         \textcolor{keywordflow}{return} callback(node.get()-\/>getData(), index);}
+\DoxyCodeLine{207     \});}
+\DoxyCodeLine{208 \}}
+
+\end{DoxyCode}

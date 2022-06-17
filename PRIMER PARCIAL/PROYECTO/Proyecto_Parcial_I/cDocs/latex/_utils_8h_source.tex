@@ -1,0 +1,143 @@
+\hypertarget{_utils_8h_source}{}\doxysection{Utils.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <conio.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }Utils}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Validation}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{comment}{// Validacion de Cedula Algoritmo}}
+\DoxyCodeLine{12 \textcolor{comment}{// Link:}}
+\DoxyCodeLine{13 \textcolor{comment}{// https://medium.com/@bryansuarez/c\%C3\%B3mo-\/validar-\/c\%C3\%A9dula-\/y-\/ruc-\/en-\/ecuador-\/b62c5666186f\#:\string~:text=El\%20proceso\%20para\%20la\%20validaci\%C3\%B3n,3\%2C4\%2C5).}}
+\DoxyCodeLine{14 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} DNI(std::string \&dni)}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     \textcolor{keywordflow}{if} (dni.size() > 10)}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} sum = 0;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} lastDigitDni = dni.at(dni.size() -\/ 1) -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{22     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < dni.size() -\/ 1; i++)}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         \textcolor{keywordtype}{int} digit = (dni[i] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{25         \textcolor{keywordflow}{if} (i \% 2 == 0)}
+\DoxyCodeLine{26         \{}
+\DoxyCodeLine{27             sum += ((digit * 2) >= 10) ? ((digit * 2) -\/ 9) : (digit * 2);}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{30         \{}
+\DoxyCodeLine{31             sum += digit;}
+\DoxyCodeLine{32         \}}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} lastDigitProcess = (((std::to\_string(sum)[0] -\/ \textcolor{charliteral}{'0'}) + 1) * 10) -\/ sum;}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (sum == 10 || lastDigitProcess == 10)}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} lastDigitDni == 0;}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} lastDigitProcess == lastDigitDni;}
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} isCharacterOrSpace(\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} (isalpha(c) || isspace(c));}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} isPlate(std::string \&plate, std::string regularExpression)}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48     std::regex regex(regularExpression);}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} std::regex\_match(plate, regex);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \} \textcolor{comment}{// namespace Validation}}
+\DoxyCodeLine{52 \} \textcolor{comment}{// namespace Validation}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{namespace }Read}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56 \textcolor{keyword}{inline} std::string onlyLettersOrSpace(std::string label)}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58     std::string input;}
+\DoxyCodeLine{59     std::cout << label;}
+\DoxyCodeLine{60     \textcolor{keywordtype}{char} character = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{while} (character != 0x0D)}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         character = \_getch();}
+\DoxyCodeLine{66         \textcolor{keywordflow}{if} (character == \textcolor{charliteral}{'\(\backslash\)b'} \&\& !input.empty())}
+\DoxyCodeLine{67         \{}
+\DoxyCodeLine{68             input.pop\_back();}
+\DoxyCodeLine{69             \mbox{\hyperlink{class_console}{Console}} console;}
+\DoxyCodeLine{70             console.clearAllScreen();}
+\DoxyCodeLine{71             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}} + label;}
+\DoxyCodeLine{72             std::cout << input;}
+\DoxyCodeLine{73             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (Utils::Validation::isCharacterOrSpace(character) \&\& character != 0x0D)}
+\DoxyCodeLine{77         \{}
+\DoxyCodeLine{78             std::cout << character;}
+\DoxyCodeLine{79             input += character;}
+\DoxyCodeLine{80             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{81         \}}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordflow}{return} input;}
+\DoxyCodeLine{85 \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{inline} std::string onlyNumbers(std::string label)}
+\DoxyCodeLine{88 \{}
+\DoxyCodeLine{89     std::string input;}
+\DoxyCodeLine{90     std::cout << label;}
+\DoxyCodeLine{91     \textcolor{keywordtype}{char} character = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{92     \textcolor{keywordflow}{while} (character != 0x0D)}
+\DoxyCodeLine{93     \{}
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} (input.size() >= 10)}
+\DoxyCodeLine{95         \{}
+\DoxyCodeLine{96             \textcolor{keywordflow}{return} input;}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98         character = \_getch();}
+\DoxyCodeLine{99         \textcolor{keywordflow}{if} (isdigit(character))}
+\DoxyCodeLine{100         \{}
+\DoxyCodeLine{101             std::cout << character;}
+\DoxyCodeLine{102             input += character;}
+\DoxyCodeLine{103             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{104         \}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{106         \{}
+\DoxyCodeLine{107             \mbox{\hyperlink{class_console}{Console}} console;}
+\DoxyCodeLine{108             console.clearAllScreen();}
+\DoxyCodeLine{109             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nSolo se permite numeros!."{}} << std::endl;}
+\DoxyCodeLine{110             std::cout << label;}
+\DoxyCodeLine{111             character = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{112             input.clear();}
+\DoxyCodeLine{113             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{114         \}}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} input;}
+\DoxyCodeLine{117 \}}
+\DoxyCodeLine{118 \textcolor{keyword}{inline} std::string plate(std::string label, std::string regularExpression)}
+\DoxyCodeLine{119 \{}
+\DoxyCodeLine{120     std::regex regex(regularExpression);}
+\DoxyCodeLine{121     std::string input;}
+\DoxyCodeLine{122     std::cout << label;}
+\DoxyCodeLine{123     std::getline(std::cin, input);}
+\DoxyCodeLine{124     \textcolor{keywordflow}{if} (Utils::Validation::isPlate(input, regularExpression))}
+\DoxyCodeLine{125     \{}
+\DoxyCodeLine{126         \textcolor{keywordflow}{return} input;}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{129     \{}
+\DoxyCodeLine{130         \mbox{\hyperlink{class_console}{Console}} console;}
+\DoxyCodeLine{131         console.clearAllScreen();}
+\DoxyCodeLine{132         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nEl formato debe ser: (AAA-\/\#\#\#)."{}} << std::endl;}
+\DoxyCodeLine{133         input.clear();}
+\DoxyCodeLine{134         \textcolor{keywordflow}{return} plate(label, regularExpression);}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 \}}
+\DoxyCodeLine{137 \} \textcolor{comment}{// namespace Read}}
+\DoxyCodeLine{138 \} \textcolor{comment}{// namespace Utils}}
+
+\end{DoxyCode}

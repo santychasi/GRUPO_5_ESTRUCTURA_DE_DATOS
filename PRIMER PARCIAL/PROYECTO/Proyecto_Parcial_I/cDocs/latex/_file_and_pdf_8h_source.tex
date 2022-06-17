@@ -1,0 +1,33 @@
+\hypertarget{_file_and_pdf_8h_source}{}\doxysection{File\+And\+Pdf.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_FILE\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_FILE\_}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Customer.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_file_and_pdf}{FileAndPdf}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     std::string name;}
+\DoxyCodeLine{13     std::ofstream file;}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<std::shared\_ptr<Car>}}> cars;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_file_and_pdf}{FileAndPdf}}(std::string name);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} write(std::string dni, std::string name, std::string phone);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} write(std::string dni, \mbox{\hyperlink{class_car}{Car}} car);}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<std::shared\_ptr<Customer>}}> customersAndCars();}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool} search(std::string dni);}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} search(std::string dni, std::string plate);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} update(std::string dni, \mbox{\hyperlink{class_car}{Car}} car);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} deleteC(std::string dni, std::string plate);}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<std::shared\_ptr<Car>}}> getCars(std::string dni);}
+\DoxyCodeLine{26     std::shared\_ptr<Customer> getCustomer(std::string dni);}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_FILE\_}}
+
+\end{DoxyCode}

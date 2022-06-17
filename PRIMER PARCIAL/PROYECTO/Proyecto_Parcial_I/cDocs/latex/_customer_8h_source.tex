@@ -1,0 +1,33 @@
+\hypertarget{_customer_8h_source}{}\doxysection{Customer.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_CUSTOMER\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_CUSTOMER\_}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Car.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}CircleDoubleLinkedList.h"{}}}
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_customer}{Customer}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8   \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     std::string dni;}
+\DoxyCodeLine{10     std::string name;}
+\DoxyCodeLine{11     std::string phone;}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<std::shared\_ptr<Car>}}> cars;}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_car}{Car}} car;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_customer}{Customer}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_customer}{Customer}}(std::string dni, std::string name, std::string phone);}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_customer}{Customer}}(std::string dni, std::string name, std::string phone, \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList}}<std::shared\_ptr<Car>> cars);}
+\DoxyCodeLine{19     std::string getDni();}
+\DoxyCodeLine{20     std::string getName();}
+\DoxyCodeLine{21     std::string getPhone();}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<std::shared\_ptr<Car>}}> getCars();}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} setCar(\mbox{\hyperlink{class_car}{Car}} car);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} setDni(std::string dni);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} setName(std::string name);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} setPhone(std::string phone);}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_CUSTOMER\_}}
+
+\end{DoxyCode}

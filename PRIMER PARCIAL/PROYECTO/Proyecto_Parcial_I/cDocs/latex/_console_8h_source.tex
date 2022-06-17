@@ -1,0 +1,102 @@
+\hypertarget{_console_8h_source}{}\doxysection{Console.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_CONSOLE\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_CONSOLE\_}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <Windows.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_console}{Console}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8   \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     HANDLE handle = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{10     COORD position = \{0, 0\};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12   \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_console}{Console}}()}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         position = \{0, 0\};}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} clearAllScreen()}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         \textcolor{keywordtype}{char} fill = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{20         COORD tl = \{0, 0\};}
+\DoxyCodeLine{21         CONSOLE\_SCREEN\_BUFFER\_INFO s;}
+\DoxyCodeLine{22         HANDLE console = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{23         GetConsoleScreenBufferInfo(console, \&s);}
+\DoxyCodeLine{24         DWORD written, cells = s.dwSize.X * s.dwSize.Y;}
+\DoxyCodeLine{25         FillConsoleOutputCharacter(console, fill, cells, tl, \&written);}
+\DoxyCodeLine{26         FillConsoleOutputAttribute(console, s.wAttributes, cells, tl, \&written);}
+\DoxyCodeLine{27         SetConsoleCursorPosition(console, tl);}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} newPositionCursor(\textcolor{keywordtype}{short} x, \textcolor{keywordtype}{short} y)}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         position.X = x;}
+\DoxyCodeLine{33         position.Y = y;}
+\DoxyCodeLine{34         SetConsoleCursorPosition(handle, position);}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} consoleExit()}
+\DoxyCodeLine{38     \{}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} colorSelection()}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44         SetConsoleTextAttribute(handle, BACKGROUND\_GREEN | BACKGROUND\_BLUE);}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} colorDefault()}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         SetConsoleTextAttribute(handle, 15);}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} write(std::string text)}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         \textcolor{keyword}{auto} *buffer = (CHAR\_INFO *)calloc(text.size(), \textcolor{keyword}{sizeof}(CHAR\_INFO));}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} (buffer == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{57         \{}
+\DoxyCodeLine{58             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         SMALL\_RECT area = \{}
+\DoxyCodeLine{62             position.X,                                     \textcolor{comment}{// left}}
+\DoxyCodeLine{63             position.Y,                                     \textcolor{comment}{// top}}
+\DoxyCodeLine{64             \textcolor{keyword}{static\_cast<}SHORT\textcolor{keyword}{>}(position.X + text.length()), \textcolor{comment}{// right}}
+\DoxyCodeLine{65             \textcolor{keyword}{static\_cast<}SHORT\textcolor{keyword}{>}(position.Y + 1)              \textcolor{comment}{// bottom}}
+\DoxyCodeLine{66         \};}
+\DoxyCodeLine{67         COORD sizeBuffer = \{\textcolor{keyword}{static\_cast<}SHORT\textcolor{keyword}{>}(text.size()), 1\};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{70         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&c : text)}
+\DoxyCodeLine{71         \{}
+\DoxyCodeLine{72             buffer[i].Char.AsciiChar = c;}
+\DoxyCodeLine{73             buffer[i].Attributes = FOREGROUND\_GREEN | FOREGROUND\_INTENSITY;}
+\DoxyCodeLine{74             i++;}
+\DoxyCodeLine{75         \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         WriteConsoleOutputA(GetStdHandle(STD\_OUTPUT\_HANDLE), buffer, sizeBuffer, \{0, 0\}, \&area);}
+\DoxyCodeLine{78         free(buffer);}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80     \textcolor{keywordtype}{short} getX()}
+\DoxyCodeLine{81     \{}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} position.X;}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84     \textcolor{keywordtype}{short} getY()}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return} position.Y;}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} setX(\textcolor{keywordtype}{short} x)}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         position.X = x;}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} setY(\textcolor{keywordtype}{short} y)}
+\DoxyCodeLine{93     \{}
+\DoxyCodeLine{94         position.Y = y;}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_CONSOLE\_}}
+
+\end{DoxyCode}

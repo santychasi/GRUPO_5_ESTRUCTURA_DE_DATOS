@@ -1,0 +1,38 @@
+\hypertarget{_menu_8h_source}{}\doxysection{Menu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Console.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}MenuItem.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <conio.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     std::string title\{\textcolor{stringliteral}{"{}"{}}\};}
+\DoxyCodeLine{13     std::map<size\_t, MenuItem *> menuItems;}
+\DoxyCodeLine{14     std::string symbol = \textcolor{stringliteral}{"{}>"{}};}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_console}{Console}} console;}
+\DoxyCodeLine{16     \textcolor{keyword}{enum} \$}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         KEY\_UP = 72,}
+\DoxyCodeLine{19         KEY\_DOWN = 80,}
+\DoxyCodeLine{20         KEY\_ENTER = 13,}
+\DoxyCodeLine{21         KEY\_ESCAPE = 27}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_menu}{Menu}}(std::string);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} addMenuItem(\textcolor{keywordtype}{size\_t}, \mbox{\hyperlink{class_menu_item}{MenuItem}} *);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} changeSymbolSelection(std::string);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} viewMenuItemConsole(\textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} navigation();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} run();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int} stop();}
+\DoxyCodeLine{32     \textcolor{keywordtype}{size\_t} sizeMenuItems();}
+\DoxyCodeLine{33 \};}
+
+\end{DoxyCode}

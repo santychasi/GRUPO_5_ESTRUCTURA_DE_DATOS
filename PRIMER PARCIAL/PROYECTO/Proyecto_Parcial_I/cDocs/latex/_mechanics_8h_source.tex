@@ -1,0 +1,30 @@
+\hypertarget{_mechanics_8h_source}{}\doxysection{Mechanics.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}FileAndPdf.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_mechanics}{Mechanics}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6   \textcolor{keyword}{private}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<std::shared\_ptr<Customer>}}> customers;}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_file_and_pdf}{FileAndPdf}} *fileCustomers = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_file_and_pdf}{FileAndPdf}} *fileCars = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11   \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_mechanics}{Mechanics}}();}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} createCustomer(std::string dni, std::string name, std::string phone, \mbox{\hyperlink{class_car}{Car}} car);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} addCar(std::string, \mbox{\hyperlink{class_car}{Car}});}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} deleteCar(std::string, std::string);}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} updateCar(std::string, \mbox{\hyperlink{class_car}{Car}});}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} showCars(std::string);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} generateReport(std::string);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} showCustomer(std::string dni);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} existCustomer(std::string);}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool} existCar(std::string, std::string);}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} showAllCustomers();}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_circle_double_linked_list}{CircleDoubleLinkedList<std::shared\_ptr<Customer>}}> getCustomers();}
+\DoxyCodeLine{24     std::shared\_ptr<Customer> getCustomer(std::string);}
+\DoxyCodeLine{25 \};}
+
+\end{DoxyCode}

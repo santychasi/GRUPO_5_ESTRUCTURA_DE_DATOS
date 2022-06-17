@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Application">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAgACgBAEAAEAQIAAAAAAEAAAACgAAAAAAAAAEQA=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="console" />
+      <Field Name="login" />
+      <Field Name="marquee" />
+      <Field Name="mechanics" />
+      <Field Name="thread" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Car">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAABAAEQAAAQAAAAAAAAAAAEQAACAAAAAgAAIAAA=</HashCode>
+      <FileName>Car.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Console">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIBAAAQAAAAAAAAAGIAAAAAAAAAAAAQAKAGAAAAQ=</HashCode>
+      <FileName>Console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQBAABAAAAAgAAAAIAAAABAABEAABgAAIEIAAAAAA=</HashCode>
+      <FileName>Customer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CircleDoubleLinkedList&lt;T&gt;">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAgIAAAAAACIAACEAAAAAAQAAAiAAAAAAEAgA=</HashCode>
+      <FileName>CircleDoubleLinkedList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileAndPdf">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAgAAAAIgAAAAAAAEACAABSABAAAEAAA=</HashCode>
+      <FileName>FileAndPdf.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Image">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAQAAQAAAAAAESAAAAAAAAEAAACBIAAQAAAAAAAAA=</HashCode>
+      <FileName>Image.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="image" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Login" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgEAAAAAAAAAAAAIAAEQAAAAAIAAAAAQAgAAAKA=</HashCode>
+      <FileName>Login.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Marquee" Collapsed="true">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAggAAAAAAAAAAAACAAAAAAAAIBAAAAAAAIAA=</HashCode>
+      <FileName>Marquee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mechanics" Collapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEAAABBACQAAAAAEgAAAgBEAACAAAAAABAJAAAAAAA=</HashCode>
+      <FileName>Mechanics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="9.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAgAAwgAAAAAAAQASAAAAAAAoAAAAgABAAAAAAAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuItem">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAIAAAEAAAAgAAAAAAAAA=</HashCode>
+      <FileName>MenuItem.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="doSth" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NodeList&lt;T&gt;">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQAAAgAAAAAAAAAAIAAAAAAAAAAAACIAASAAIAAAA=</HashCode>
+      <FileName>NodeList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pdf" Collapsed="true">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Pdf.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="std::function&lt;_Fty&gt;" Collapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAEIgAAAAAAAAAAAAAAAQIgAAAAAAA=</HashCode>
+      <FileName>C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include\functional</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cv::Mat" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="cv::Mat::__unnamed_enum_0424_1" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\Users\omarg\Desktop\ESTRUCTURA DE DATOS\PARCIAL 1\PROYECTO22\Proyecto_Parcial_I\lib\include\opencv2\core\mat.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="cv::Mat::__unnamed_enum_0424_2" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\Users\omarg\Desktop\ESTRUCTURA DE DATOS\PARCIAL 1\PROYECTO22\Proyecto_Parcial_I\lib\include\opencv2\core\mat.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>FFCwMAAHGDAAhQAEEIFbCQATBgCjAsLEgUfwIwABAAQ=</HashCode>
+      <FileName>C:\Users\omarg\Desktop\ESTRUCTURA DE DATOS\PARCIAL 1\PROYECTO22\Proyecto_Parcial_I\lib\include\opencv2\core\mat.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="std::thread" Collapsed="true">
+    <Position X="6.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACgAAgAEAAAAIAACQAAQIgAAAAQAgAQAAQAA=</HashCode>
+      <FileName>C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include\thread</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

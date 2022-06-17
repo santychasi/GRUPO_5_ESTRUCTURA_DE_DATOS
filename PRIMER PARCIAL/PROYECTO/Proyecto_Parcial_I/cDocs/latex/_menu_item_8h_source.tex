@@ -1,0 +1,19 @@
+\hypertarget{_menu_item_8h_source}{}\doxysection{Menu\+Item.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu_item}{MenuItem}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6   \textcolor{keyword}{private}:}
+\DoxyCodeLine{7     std::string label;}
+\DoxyCodeLine{8     std::function<void(\textcolor{keywordtype}{void})> doSth;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10   \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_menu_item}{MenuItem}}(std::string, std::function<\textcolor{keywordtype}{void}(\textcolor{keywordtype}{void})>);}
+\DoxyCodeLine{12     std::string getLabel();}
+\DoxyCodeLine{13     std::function<void(\textcolor{keywordtype}{void})> getDoSth();}
+\DoxyCodeLine{14 \};}
+
+\end{DoxyCode}

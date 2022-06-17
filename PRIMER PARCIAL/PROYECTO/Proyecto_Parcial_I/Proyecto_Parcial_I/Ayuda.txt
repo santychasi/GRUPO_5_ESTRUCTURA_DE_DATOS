@@ -1,0 +1,66 @@
++-----------------------------------------+
+| UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE |
+|                                         |
+| GRUPO 5  				            |
+| ESTRUCTURA DE DATOS                     |
+| Ing. Fernando Solís			      |	
++-----------------------------------------+
+
++-------------------+
+| MECÁNICA DE AUTOS |
++-------------------+
+
+
+INTRODUCCION
+------------
+
+- El proyecto consiste en una aplicativo desarrollado en consola en el lenguaje C++, el cual nos
+  permite registrar un auto a la mecánica, donde se pediran los datos del propietario del vehículo,
+  así como también los datos del vehículo. Se podrá ver que vehículos están registrados en archivo 
+  PDF y los datos se almacenaron en un archivo txt.
+
+
++---------------------------+
+| MANUAL DE USUARIO Y AYUDA |
++---------------------------+
+
+Parte 1 - Ingreso de Autos a la mecánica 
+-----------------------------
+
+- Al seleccionar “Agregar Auto” el programa pedirá que se ingrese el número de cédula del propietario
+  del vehículo. Si la cédula ya se encuentra registrada el programa enviará un mensaje donde se 
+  indique que dicha cédula ya está en el registro. En el caso de que de que la cédula no se 
+  encuentre registrada se le preguntará al usuario si desea agregar al sistema.
+- El usuario previamente registrado pasará a escribir su nombre y télefono para que se guarde en el 
+  sistema. Luego el programa procederá a pedir los datos del vehiculo, como son: placa, marca, modelo 
+  y color. Toda esta información se guardará dentro de un archivo txt.
+- Al finalizar el registro del vehículo, el usuario podrá regresar al menú de opciones para realizar
+  alguna otra actividad dentro del programa.
+
+Parte 2 - Eliminar Auto
+-------------------------------------
+
+- Al seleccionar "Eliminar Auto" el programa pedirá que se ingrese el numero de cédula del propietario
+  para poder identificar el vehiculo. Al igual que en el ingresar auto esta se validara para saber si 
+  la cedula se ingreso de manera correcta y si existe un vehículo con ese dueño, en el caso que no exista
+  un vehículo ya registrado no se podra continuar ya que el programa no tendra ningun elemento para eliminar.
+
+Parte 3 - Mostrar autos
+- Al seleccionar "Mostrar autos" se mostraran todos los carros ingresados hasta el momento.
+
+
+Parte 4 - Generar informe
+- Al seleccionar "Generar informe" el programa perdira que se ingrese el numero de cedula del propietario
+  para poder identificar el vehiculo, siguiente a esto se validara de igual manera si esta registrado ese
+  numero de cedula y procedera a generar un archivo .pdf en el cual se podrá visualizar toda la informacion
+  ingresada del vehiculo
+
+Parte 5 - Ayuda
+- Al seleccionar "Ayuda" se generar un manual de como funciona el programa
+
+Parte 6 - Imagen
+- Al selecionar "Imagen" el programa generar una imagen pixeleada de uno de los integrantes del grupo
+
+Parte 7 - Salir 
+- Al seleccionar "Salir" el programa finalizara
+

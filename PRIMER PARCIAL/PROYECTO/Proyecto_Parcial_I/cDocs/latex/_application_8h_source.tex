@@ -1,0 +1,32 @@
+\hypertarget{_application_8h_source}{}\doxysection{Application.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Image.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Login.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Marquee.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Mechanics.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Menu.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Utils.h"{}}}
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_application}{Application}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10   \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_application}{Application}}();}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} run();}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} exitApp();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} renderMenu();}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} renderAddCar();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} renderImg();}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} renderDeleteCar();}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} renderShowAll();}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_mechanics}{Mechanics}} *mechanics = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_marquee}{Marquee}} *marquee = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_console}{Console}} *console = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{24     std::thread *thread = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_login}{Login}} *login = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_image}{Image}} *image = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{27 \};}
+
+\end{DoxyCode}

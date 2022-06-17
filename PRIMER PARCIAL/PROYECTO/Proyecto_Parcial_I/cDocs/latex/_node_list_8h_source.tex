@@ -1,0 +1,57 @@
+\hypertarget{_node_list_8h_source}{}\doxysection{Node\+List.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{3 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_node_list}{NodeList}}}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{5   \textcolor{keyword}{private}:}
+\DoxyCodeLine{6     T data;}
+\DoxyCodeLine{7     std::shared\_ptr<NodeList<T>> next;}
+\DoxyCodeLine{8     std::shared\_ptr<NodeList<T>> previous;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10   \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_node_list}{NodeList}}(T);}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} setData(T);}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} setNext(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}>);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} setPrevious(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}>);}
+\DoxyCodeLine{15     std::shared\_ptr<NodeList<T>> getNext();}
+\DoxyCodeLine{16     std::shared\_ptr<NodeList<T>> getPrevious();}
+\DoxyCodeLine{17     T getData();}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_node_list}{NodeList<T>::NodeList}}(T data)}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     this-\/>data = data;}
+\DoxyCodeLine{23     this-\/>next = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{24     this-\/>previous = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{25 \}}
+\DoxyCodeLine{26 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_node_list}{NodeList<T>::setData}}(T data)}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     this-\/>data = data;}
+\DoxyCodeLine{29 \}}
+\DoxyCodeLine{30 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_node_list}{NodeList<T>::setNext}}(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}> next)}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     this-\/>next = next;}
+\DoxyCodeLine{33 \}}
+\DoxyCodeLine{34 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_node_list}{NodeList<T>::setPrevious}}(std::shared\_ptr<\mbox{\hyperlink{class_node_list}{NodeList<T>}}> previous)}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     this-\/>previous = previous;}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> std::shared\_ptr<NodeList<T>> \mbox{\hyperlink{class_node_list}{NodeList<T>::getNext}}()}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} this-\/>next;}
+\DoxyCodeLine{42 \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> std::shared\_ptr<NodeList<T>> \mbox{\hyperlink{class_node_list}{NodeList<T>::getPrevious}}()}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{return} this-\/>previous;}
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> T \mbox{\hyperlink{class_node_list}{NodeList<T>::getData}}()}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} this-\/>data;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
