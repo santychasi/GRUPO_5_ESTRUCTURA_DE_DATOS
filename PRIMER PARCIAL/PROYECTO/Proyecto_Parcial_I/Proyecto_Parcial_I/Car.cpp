@@ -1,38 +1,31 @@
 #include "Car.h"
 
-Car::Car(string plateLicense, string brand, string color)
-{
+Car::Car(string plateLicense, string brand, string color){
     this->plateLicense = plateLicense;
     this->brand = brand;
     this->color = color;
 }
 
-void Car::setPlateLicense(string PlateLicense)
-{
+void Car::setPlateLicense(string PlateLicense){
     this->plateLicense = PlateLicense;
 }
 
-void Car::setBrand(string Brand)
-{
+void Car::setBrand(string Brand){
     this->brand = Brand;
 }
 
-void Car::setColor(string Color)
-{
+void Car::setColor(string Color){
     this->color = Color;
 }
 
-string Car::getPlateLicense()
-{
+string Car::getPlateLicense(){
     return plateLicense;
 }
 
-string Car::getBrand()
-{
+string Car::getBrand(){
     return brand;
 }
 
-string Car::getColor()
-{
+string Car::getColor(){
     return color;
 }
